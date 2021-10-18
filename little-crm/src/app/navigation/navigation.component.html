@@ -1,0 +1,27 @@
+<mat-sidenav #start>
+  <mat-nav-list (click)="start.close()">
+
+    <a mat-list-item routerLink="/start">
+      <mat-icon>library_books</mat-icon>
+      <span>Start</span>
+    </a>
+
+    <a mat-list-item routerLink="/customer-dashboard">
+      <mat-icon>library_books</mat-icon>
+      <span>Customers</span>
+    </a>
+
+    <a mat-list-item routerLink="/legal-notice">
+      <mat-icon>library_books</mat-icon>
+      <span>Legal Notice</span>
+    </a>
+
+  </mat-nav-list>
+
+</mat-sidenav>
+
+<mat-toolbar color="primary">
+  <button class="menu-button" mat-icon-button (click)="start.open('mouse')">
+    <mat-icon>menu</mat-icon>
+  </button>
+</mat-toolbar>
