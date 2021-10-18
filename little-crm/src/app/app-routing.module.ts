@@ -15,13 +15,13 @@ const routes: Routes = [
     path: 'start',
     component: StartPageComponent
   },
-  {
+/*  {
     path: 'customer-dashboard',
     component: CustomerDashboardComponent
-  },
+  },*/
   {
     path: 'legal-notice',
-    component: LegalNoticePageComponent
+    loadChildren: () => import('./features/legal-pages/legal-pages.module').then(m => m.LegalPagesModule)
   },
   {
     path: '**',

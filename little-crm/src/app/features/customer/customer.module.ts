@@ -6,6 +6,7 @@ import { CustomerDashboardComponent } from './customer-dashboard/customer-dashbo
 import { CustomerListComponent } from './views/customer-list/customer-list.component';
 import { CustomerEditComponent } from './views/customer-edit/customer-edit.component';
 import { CustomerNewComponent } from './views/customer-new/customer-new.component';
+import {MaterialModule} from "../../material/material.module";
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { CustomerNewComponent } from './views/customer-new/customer-new.componen
   ],
   imports: [
     CommonModule,
+    MaterialModule,
     CustomerRoutingModule
   ]
 })

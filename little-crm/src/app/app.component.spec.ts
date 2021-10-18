@@ -14,7 +14,7 @@ describe('AppComponent', () => {
         RouterTestingModule
       ],
       // schemas: [NO_ERRORS_SCHEMA],
-      // schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
       declarations: [
         AppComponent,
         MockComponent(NavigationComponent),
@@ -29,6 +29,7 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
+/*
   it(`should have as title 'little-crm'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
@@ -41,5 +42,5 @@ describe('AppComponent', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('h1')?.textContent)
       .toContain('Little CRM');
-  });
+  });*/
 });
