@@ -1,4 +1,44 @@
-<p>customer-list works!</p>
-<pre>
-  {{ customers | json }}
-</pre>
+<button mat-raised-button color="primary" routerLink="new">New Customer</button>
+
+<table mat-table [dataSource]="customers" class="mat-elevation-z8" style="width: 95%; margin: 0 1rem;">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> No. </th>
+    <td mat-cell *matCellDef="let customer"> {{customer.id}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let customer"> {{customer.name}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="volume">
+    <th mat-header-cell *matHeaderCellDef> Volume </th>
+    <td mat-cell *matCellDef="let customer"> {{customer.volume}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="action">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let customer" style="text-align: right;">
+
+      <button mat-button mat-icon-button>
+        <mat-icon [routerLink]="['edit', customer.id]">edit</mat-icon>
+
+      </button>
+      <button mat-button mat-icon-button>
+        <mat-icon (click)="delete(customer.id)" style="color: red">delete</mat-icon>
+      </button>
+
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
