@@ -14,6 +14,7 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+import {AuthModule} from "./features/auth/auth.module";
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +33,7 @@ import { environment } from '../environments/environment';
     StartPageModule,
     DefaultPagesModule,
     CustomerModule,
+    AuthModule,
 
     // Basic Routing
     AppRoutingModule,
