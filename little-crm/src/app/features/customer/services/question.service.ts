@@ -15,7 +15,7 @@ export class QuestionService {
 
     const questions: QuestionBase<string>[] = [
 
-      new DropdownQuestion({
+/*      new DropdownQuestion({
         key: 'brave',
         label: 'Bravery Rating',
         options: [
@@ -25,24 +25,25 @@ export class QuestionService {
           {key: 'unproven', value: 'Unproven'}
         ],
         order: 3
-      }),
+      }),*/
 
       new TextboxQuestion({
-        key: 'firstName',
-        label: 'First name',
-        value: 'Bombasto',
+        key: 'name',
+        label: 'Name',
+        value: '',
+        type: 'text',
         required: true,
         order: 1
       }),
 
       new TextboxQuestion({
-        key: 'emailAddress',
-        label: 'Email',
-        type: 'email',
+        key: 'volume',
+        label: 'Volume',
+        type: 'number',
         order: 2
       })
-    ];
 
+    ];
     return of(questions.sort((a, b) => a.order - b.order));
   }
 }

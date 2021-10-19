@@ -1,4 +1,7 @@
-<div>
+<mat-card class="login-page" style="margin: 0 1rem">
+  <mat-card-title>Edit Customer</mat-card-title>
+  <mat-card-content>
+
   <form (ngSubmit)="onSubmit()" [formGroup]="form">
 
     <div *ngFor="let question of questions" class="form-row">
@@ -6,11 +9,13 @@
     </div>
 
     <div class="form-row">
-      <button type="submit" [disabled]="!form.valid">Save</button>
+      <button type="submit" [disabled]="!form.valid" mat-raised-button color="primary">Submit</button>
     </div>
   </form>
 
   <div *ngIf="payLoad" class="form-row">
     <strong>Saved the following values</strong><br>{{payLoad}}
   </div>
-</div>
+  </mat-card-content>
+</mat-card>
+

@@ -1,9 +1,11 @@
 <div [formGroup]="form">
-  <label [attr.for]="question.key">{{question.label}}</label>
+  <mat-form-field>
+  <label [attr.for]="question.key" class="form-label">{{question.label}}</label>
+
 
   <div [ngSwitch]="question.controlType">
 
-    <input *ngSwitchCase="'textbox'" [formControlName]="question.key"
+    <input matInput class="form-control" *ngSwitchCase="'textbox'" [formControlName]="question.key"
            [id]="question.key" [type]="question.type">
 
     <select [id]="question.key" *ngSwitchCase="'dropdown'" [formControlName]="question.key">
@@ -13,4 +15,5 @@
   </div>
 
   <div class="errorMessage" *ngIf="!isValid">{{question.label}} is required</div>
+  </mat-form-field>
 </div>
