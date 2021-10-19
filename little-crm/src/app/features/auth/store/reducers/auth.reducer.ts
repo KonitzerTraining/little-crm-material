@@ -15,9 +15,9 @@ export const initialState: State = {
 export const reducer = createReducer(
   initialState,
 
-  on(AuthActions.loadAuths, state => state),
+/*  on(AuthActions.loadAuths, state => state),
   on(AuthActions.loadAuthsSuccess, (state, action) => state),
-  on(AuthActions.loadAuthsFailure, (state, action) => state),
+  on(AuthActions.loadAuthsFailure, (state, action) => state),*/
 
 );
 
