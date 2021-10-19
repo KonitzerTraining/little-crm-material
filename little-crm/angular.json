@@ -151,6 +151,6 @@
   },
   "defaultProject": "little-crm",
   "cli": {
-    "defaultCollection": "@angular-eslint/schematics"
+    "defaultCollection": "@ngrx/schematics"
   }
 }

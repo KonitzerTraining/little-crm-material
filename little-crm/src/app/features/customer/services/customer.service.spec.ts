@@ -7,7 +7,7 @@ import {HttpClient} from "@angular/common/http";
 import {Customer} from "../model/customer";
 import {noop} from "rxjs";
 
-fdescribe('CustomerService', () => {
+describe('CustomerService', () => {
   let service: CustomerService;
   let httpClientMock = createHttpClientMock(customersMock);
 
