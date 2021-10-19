@@ -1,4 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { EventEmitter } from '@angular/core';
+import {Component, Input, OnInit, Output} from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import {QuestionBase} from '../../model/question-base';
 import {QuestionControlService} from '../../services/question-control.service';
@@ -14,6 +15,8 @@ export class DynamicFormComponent implements OnInit {
   form!: FormGroup;
   payLoad = '';
 
+  @Output() submitData = new EventEmitter();
+
   constructor(private qcs: QuestionControlService) {}
 
   ngOnInit() {
@@ -22,5 +25,6 @@ export class DynamicFormComponent implements OnInit {
 
   onSubmit() {
     this.payLoad = JSON.stringify(this.form.getRawValue());
+    this.submitData.emit(this.form.getRawValue());
   }
 }
