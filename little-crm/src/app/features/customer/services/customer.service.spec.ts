@@ -5,6 +5,7 @@ import {createHttpClientMock} from "../../../../../mocks/http/httpClientMock";
 import {customersMock} from "../../../../../mocks/api/customers";
 import {HttpClient} from "@angular/common/http";
 import {Customer} from "../model/customer";
+import {noop} from "rxjs";
 
 fdescribe('CustomerService', () => {
   let service: CustomerService;
@@ -25,7 +26,6 @@ fdescribe('CustomerService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
-
 
   it('should have getCustomers', () => {
     service.getCustomers();
@@ -50,5 +50,14 @@ fdescribe('CustomerService', () => {
   it('should have putCustomer', () => {
     service.putCustomer(customersMock[0] as Customer);
     expect(httpClientMock.put).toHaveBeenCalled();
+  });
+
+  it('should have putCustomer', (done) => {
+    service['errorHandler']({message: 'test'}).subscribe(noop,
+    (errMessage) => {
+        expect(errMessage).toEqual('test');
+        done();
+    })
+
   });
 });
