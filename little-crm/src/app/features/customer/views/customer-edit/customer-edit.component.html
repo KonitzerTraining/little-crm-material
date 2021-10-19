@@ -6,6 +6,9 @@
       <mat-form-field>
         <label for="name" class="form-label">Name:</label>
         <input matInput [class.is-invalid]="customerForm.controls.name.invalid" type="text" class="form-control" id="name" aria-describedby="name" formControlName="name">
+        <div *ngIf="customerForm.controls.name.errors?.forbiddenName">
+          Name cannot be Bob.
+        </div>
       </mat-form-field>
 
       <div>

@@ -13,6 +13,14 @@ function forbiddenNameValidator(nameRe: RegExp): ValidatorFn {
   }
 }
 
+// Validate multiple form elements (Form Controls)
+function forbiddenLengthValidator(control: AbstractControl): ValidationErrors | null {
+   const name = control.get('name');
+   const volume = control.get('volume');
+
+   return (name!.value.length === volume!.value) ? {lengthMatches: true}: null;
+}
+
 @Component({
   selector: 'crm-customer-edit',
   templateUrl: './customer-edit.component.html',
@@ -36,6 +44,8 @@ export class CustomerEditComponent implements OnInit {
         Validators.min(0)
       ]
     ]
+  }, {
+    validators: forbiddenLengthValidator
   });
 
   constructor(
