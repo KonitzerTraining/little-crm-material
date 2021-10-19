@@ -7,7 +7,7 @@ import {createCustomerServiceMock} from "../../../../../../mocks/customer/custom
 import {CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA} from "@angular/core";
 import {customersMock} from "../../../../../../mocks/api/customers";
 
-fdescribe('CustomerListComponent', () => {
+describe('CustomerListComponent', () => {
   let component: CustomerListComponent;
   let fixture: ComponentFixture<CustomerListComponent>;
 
