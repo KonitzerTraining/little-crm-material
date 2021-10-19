@@ -35,14 +35,21 @@ export class CustomerService {
   }
 
   deleteCustomer(id: number): Observable<any> {
-    return this.http.delete(url + id);
+    return this.http.delete(url + id).pipe(
+      catchError(this.errorHandler)
+    );
   }
 
   postCustomer(customer: Customer): Observable<Customer> {
-    return this.http.post<Customer>(url, customer);
+    return this.http.post<Customer>(url, customer).pipe(
+      catchError(this.errorHandler)
+    );
   }
 
   putCustomer(customer: Customer): Observable<Customer> {
-    return this.http.put<Customer>(url + customer.id, customer);
+    return this.http.put<Customer>(url + customer.id, customer)
+      .pipe(
+        catchError(this.errorHandler)
+      );
   }
 }

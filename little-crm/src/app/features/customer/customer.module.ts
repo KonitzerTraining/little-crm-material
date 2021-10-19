@@ -7,6 +7,7 @@ import { CustomerListComponent } from './views/customer-list/customer-list.compo
 import { CustomerEditComponent } from './views/customer-edit/customer-edit.component';
 import { CustomerNewComponent } from './views/customer-new/customer-new.component';
 import {MaterialModule} from "../../material/material.module";
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import {MaterialModule} from "../../material/material.module";
   imports: [
     CommonModule,
     MaterialModule,
+    ReactiveFormsModule,
     CustomerRoutingModule
   ]
 })
