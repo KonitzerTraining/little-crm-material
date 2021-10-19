@@ -47,6 +47,5 @@ fdescribe('CustomerListComponent', () => {
     const id = customersMock[0].id
     component.delete(id);
     expect(customerServiceMock.deleteCustomer).toHaveBeenCalledWith(id);
-
   })
 });
