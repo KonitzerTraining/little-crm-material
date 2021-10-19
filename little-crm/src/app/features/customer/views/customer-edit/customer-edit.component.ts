@@ -24,9 +24,15 @@ export class CustomerEditComponent implements OnInit {
     private router: Router
   ) { }
 
-
   ngOnInit(): void {
-    this.loadCustomer();
+    // this.loadCustomer();
+    this.getFromResolver();
+  }
+
+  getFromResolver() {
+    const customer: Customer = this.activatedRoute.snapshot.data.customer;
+    this.customerForm.patchValue(customer);
+
   }
 
   loadCustomer() {
