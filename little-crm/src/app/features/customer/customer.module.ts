@@ -8,6 +8,8 @@ import { CustomerEditComponent } from './views/customer-edit/customer-edit.compo
 import { CustomerNewComponent } from './views/customer-new/customer-new.component';
 import {MaterialModule} from "../../material/material.module";
 import {ReactiveFormsModule} from "@angular/forms";
+import { DynamicFormQuestionComponent } from './components/dynamic-form-question/dynamic-form-question.component';
+import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.component';
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import {ReactiveFormsModule} from "@angular/forms";
     CustomerDashboardComponent,
     CustomerListComponent,
     CustomerEditComponent,
-    CustomerNewComponent
+    CustomerNewComponent,
+    DynamicFormQuestionComponent,
+    DynamicFormComponent
   ],
   imports: [
     CommonModule,

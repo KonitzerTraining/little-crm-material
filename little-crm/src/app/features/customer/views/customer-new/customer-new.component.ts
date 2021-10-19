@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import {Observable} from 'rxjs';
+import {QuestionBase} from '../../model/question-base';
+import {QuestionService} from '../../services/question.service';
 
 @Component({
   selector: 'crm-customer-new',
   templateUrl: './customer-new.component.html',
   styleUrls: ['./customer-new.component.scss']
 })
-export class CustomerNewComponent implements OnInit {
+export class CustomerNewComponent  {
 
-  constructor() { }
+  questions$: Observable<QuestionBase<any>[]>;
 
-  ngOnInit(): void {
+  constructor(service: QuestionService) {
+    this.questions$ = service.getQuestions();
   }
-
 }

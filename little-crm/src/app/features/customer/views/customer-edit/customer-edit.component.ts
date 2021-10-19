@@ -17,7 +17,6 @@ function forbiddenNameValidator(nameRe: RegExp): ValidatorFn {
 function forbiddenLengthValidator(control: AbstractControl): ValidationErrors | null {
    const name = control.get('name');
    const volume = control.get('volume');
-
    return (name!.value.length === volume!.value) ? {lengthMatches: true}: null;
 }
 

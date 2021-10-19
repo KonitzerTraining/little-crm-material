@@ -4,6 +4,7 @@ import {CustomerDashboardComponent} from "./customer-dashboard/customer-dashboar
 import {CustomerListComponent} from "./views/customer-list/customer-list.component";
 import {CustomerEditComponent} from "./views/customer-edit/customer-edit.component";
 import {OneCustomerResolver} from "./resolvers/one-customer.resolver";
+import {CustomerNewComponent} from "./views/customer-new/customer-new.component";
 
 const routes: Routes = [
   {
@@ -13,6 +14,10 @@ const routes: Routes = [
       {
         path: '',
         component: CustomerListComponent
+      },
+      {
+        path: 'new',
+        component: CustomerNewComponent
       },
       {
         path: 'edit/:id',
