@@ -4,7 +4,7 @@ import { selectAuthState } from './auth.selectors';
 import {AuthState} from "../reducers/auth.reducer";
 import {AuthSelectors} from "./auth-selectors-types";
 
-fdescribe("Auth Selectors", () => {
+describe("Auth Selectors", () => {
   const initialState: AuthState = {
     user: {id : 999, email: 'test'}
   }
@@ -19,5 +19,9 @@ fdescribe("Auth Selectors", () => {
     expect(result).not.toEqual(true);
   })
 
+  it ('should select logout', () => {
+    const result = AuthSelectors.isLoggedOut.projector(false);
+    expect(result).toEqual(true);
+  })
 
 })
