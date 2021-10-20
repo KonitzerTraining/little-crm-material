@@ -1,7 +1,7 @@
 import {AuthActions} from "./action-types";
 
 // suite
-fdescribe('loadAuths', () => {
+describe('loadAuths', () => {
 
   // spec
   it('should return an action', () => {
