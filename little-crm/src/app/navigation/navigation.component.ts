@@ -11,6 +11,7 @@ import {Observable} from "rxjs";
 })
 export class NavigationComponent implements OnInit {
   public isLoggedIn$ ?: Observable<boolean>;
+  public isLoggedOut$ ?: Observable<boolean>;
 
   constructor(
     private store: Store
@@ -20,6 +21,10 @@ export class NavigationComponent implements OnInit {
         this.isLoggedIn$ = this.store.pipe(
           select(AuthSelectors.isLoggedIn)
         );
+
+       this.isLoggedOut$ = this.store.pipe(
+        select(AuthSelectors.isLoggedOut)
+      );
     }
 
     logout() {

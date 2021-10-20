@@ -5,11 +5,13 @@ import {CustomerListComponent} from "./views/customer-list/customer-list.compone
 import {CustomerEditComponent} from "./views/customer-edit/customer-edit.component";
 import {OneCustomerResolver} from "./resolvers/one-customer.resolver";
 import {CustomerNewComponent} from "./views/customer-new/customer-new.component";
+import {CustomerGuard} from "./guards/customer.guard";
 
 const routes: Routes = [
   {
     path: 'customer-dashboard',
     component: CustomerDashboardComponent,
+    canActivate: [CustomerGuard],
     children: [
       {
         path: '',
