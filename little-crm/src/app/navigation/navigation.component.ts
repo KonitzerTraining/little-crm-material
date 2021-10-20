@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Store} from "@ngrx/store";
+import {select, Store} from "@ngrx/store";
 import {AuthActions} from "../features/auth/store/actions/action-types";
+import {AuthSelectors} from "../features/auth/store/selectors/auth-selectors-types";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'crm-navigation',
@@ -8,12 +10,16 @@ import {AuthActions} from "../features/auth/store/actions/action-types";
   styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent implements OnInit {
+  public isLoggedIn$ ?: Observable<boolean>;
 
   constructor(
     private store: Store
   ) { }
 
     ngOnInit(): void {
+        this.isLoggedIn$ = this.store.pipe(
+          select(AuthSelectors.isLoggedIn)
+        );
     }
 
     logout() {

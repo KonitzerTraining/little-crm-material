@@ -25,6 +25,7 @@
     <a mat-list-item (click)="logout()">
       <mat-icon>account_circle</mat-icon>
       <span>Logout</span>
+      {{isLoggedIn$ | async}}
     </a>
 
 
