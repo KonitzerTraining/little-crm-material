@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {fromEvent, interval, Observable, of, timer} from "rxjs"; // create Observables
 import {environment} from "../../../../environments/environment";
-import {map} from "rxjs/operators";
+import {map, shareReplay} from "rxjs/operators";
 import {createHttpObservable} from "../utils"; // for pipe
 
 @Component({
@@ -53,13 +53,17 @@ export class StartPageComponent implements OnInit {
 
     const customers$ = createHttpObservable(environment.apiUrl + 'customers');
 
-    this.noViPCustomers$ = customers$.pipe(
+    const sharedCustomer$ = customers$.pipe(
+      shareReplay()
+    )
+
+    this.noViPCustomers$ = sharedCustomer$.pipe(
       map((customers: any) => customers
         .filter((customer: any) => customer.category == 'NOVIP')
       )
     )
 
-    this.vipCustomers$ = customers$.pipe(
+    this.vipCustomers$ = sharedCustomer$.pipe(
       map((customers: any) => customers
         .filter((customer: any) => customer.category == 'VIP')
       )
