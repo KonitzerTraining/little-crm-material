@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {fromEvent, interval, Observable, of, timer} from "rxjs"; // create Observables
+import {concat, fromEvent, interval, Observable, of, timer} from "rxjs"; // create Observables
 import {environment} from "../../../../environments/environment";
 import {map, shareReplay} from "rxjs/operators";
 import {createHttpObservable} from "../utils"; // for pipe
@@ -16,6 +16,22 @@ export class StartPageComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
+    const value01$ = of(3,4,5);
+    const value02$ = of(6,7,8);
+
+    const result$ = concat(value01$, value02$);
+    result$.subscribe(console.log)
+
+
+
+    /*
+    // Only with V7 and higher
+    result$ = value01$.pipe(
+      concatWith(value02$)
+    )
+    result$.subscribe(console.log)*/
+
 
 /*    setInterval(() => {
       console.log('ok')
@@ -69,5 +85,7 @@ export class StartPageComponent implements OnInit {
       )
     )
   }
+
+
 
 }
