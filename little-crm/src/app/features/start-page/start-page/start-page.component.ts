@@ -10,8 +10,8 @@ import {createHttpObservable} from "../utils"; // for pipe
   styleUrls: ['./start-page.component.scss']
 })
 export class StartPageComponent implements OnInit {
-  public noViPCustomers: any;
-  public vipCustomers: any;
+  public noViPCustomers$: any;
+  public vipCustomers$: any;
 
   constructor() { }
 
@@ -51,32 +51,19 @@ export class StartPageComponent implements OnInit {
       )
       .subscribe(console.log)
 
-    const http$ = createHttpObservable(environment.apiUrl + 'customers');
+    const customers$ = createHttpObservable(environment.apiUrl + 'customers');
 
-    http$
-      .pipe(
-        map((data: any) => {
-          data.map((item: any) => {
-            item.tstamp = (new Date).getMilliseconds();
-          })
-          return data;
-        })
+    this.noViPCustomers$ = customers$.pipe(
+      map((customers: any) => customers
+        .filter((customer: any) => customer.category == 'NOVIP')
       )
-      .subscribe(
-        (customers) => {
-          this.vipCustomers = customers.filter((customer: any) => {
-           //  retrurn customer.catagory === 'VIP';
-            return true;
-          });
-          this.noViPCustomers = customers.filter();
-        },
-        (err) => {
-          console.warn(err);
-        },
-        () => {
-          console.log('completed')
-        }
-      );
+    )
+
+    this.vipCustomers$ = customers$.pipe(
+      map((customers: any) => customers
+        .filter((customer: any) => customer.category == 'VIP')
+      )
+    )
   }
 
 }
