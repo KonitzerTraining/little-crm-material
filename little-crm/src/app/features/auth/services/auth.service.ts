@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Observable, of} from 'rxjs';
+import {Observable, of, throwError} from 'rxjs';
 
 
 @Injectable(
@@ -19,6 +19,8 @@ export class AuthService {
       id: 42,
       email: 'example@axample.com'
     });
+
+    // return throwError('test');
   }
 
 }

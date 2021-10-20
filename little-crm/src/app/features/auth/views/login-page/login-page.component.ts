@@ -3,6 +3,10 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../services/auth.service";
 import {Router} from "@angular/router";
 import {Store} from "@ngrx/store";
+import {tap} from "rxjs/operators";
+import {User} from "../../model/user";
+import {noop} from "rxjs";
+import {AuthActions} from "../../store/actions/action-types";
 
 @Component({
   selector: 'crm-login-page',
@@ -25,6 +29,22 @@ export class LoginPageComponent {
   }
 
   login() {
+    const {email, password} = this.form.value;
+    this.auth.login(email, password)
+      .pipe(
+        tap((user: User) => {
+          this.store.dispatch(AuthActions.login({user}))
+        })
+      )
+      .subscribe(
+        noop,
+        (err) => {
+          console.warn(err);
+        },
+        () => {
+          console.log("complete");
+        }
+      )
 
   }
 }
