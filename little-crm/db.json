@@ -3,37 +3,44 @@
     {
       "id": 3,
       "name": "Hans",
-      "volume": 300
+      "volume": 300,
+      "category": "VIP"
     },
     {
       "id": 4,
       "name": "Hans",
-      "volume": 78
+      "volume": 78,
+      "category": "VIP"
     },
     {
       "id": 5,
       "name": "Hans",
-      "volume": 67
+      "volume": 67,
+      "category": "NOVIP"
     },
     {
       "id": 6,
       "name": "Hans",
-      "volume": 4523452345
+      "volume": 4523452345,
+      "category": "NOVIP"
     },
     {
       "id": 7,
       "name": "Hans",
-      "volume": 23
+      "volume": 23,
+      "category": "VIP"
     },
     {
       "name": "test",
       "volume": "456456456",
-      "id": 8
+      "id": 8,
+      "category": "NOVIP"
     },
     {
       "name": "asadf",
       "volume": "2345764534",
-      "id": 9
+      "id": 9,
+      "category": "NOVIP"
     }
   ]
 }
